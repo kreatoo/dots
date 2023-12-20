@@ -1,0 +1,135 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 40,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    //"width": 1350, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["custom/launcher","sway/workspaces", "sway/mode"],
+    "modules-right": ["network", "cpu", "memory", "idle_inhibitor", "backlight", "pulseaudio", "battery", "clock", "tray", "custom/power"],
+
+ // Modules configuration
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+		"3": "3",
+		"4": "4",
+		"5": "5",
+		"6": "6",
+		"7": "7",
+		"8": "8",
+		"9": "9",
+		"10": "10",
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "format": "{}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+       "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 22
+    },
+    "clock": {
+        "format": "   {:%OI:%M %p}",
+        "on-click": "footclient -T waybar_calcurse -e calcurse",
+        "tooltip-format": "   {:%A %m/%d}\n\n<tt><small>{calendar}</small></tt>",
+	"calendar": {
+		"on-scroll": 1,
+		"format": {
+			"months":     "<span color='#ffead3'><b>{}</b></span>",
+			"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+			"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		}
+    },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "cpu": {
+        "format": " {usage: >3}%",
+        "on-click": "footclient -T waybar_btop -e btop"
+    },
+    "memory": {
+        "format": "  {: >3}%",
+        "on-click": "footclient -T waybar_btop -e btop"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}{percent: >3}%",
+        "format-icons": ["", ""],
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}{capacity: >3}%",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["   ", "   ", "   ", "   ", "   "]
+        //"format-icons": ["", "", "", "", "", "", "", "", "", ""]
+    },
+    "network": {
+        "format": " Disabled",
+        "format-wifi": "{bandwidthDownBits:>}{bandwidthUpBits:>}",
+        "tooltip-format-wifi": "{essid}",
+        "format-ethernet": "{bandwidthDownBits:>}{bandwidthUpBits:>}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": " Disconnected",
+        "on-click": "footclient -T waybar_nmtui -e nmtui",
+        "interval": 2,
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon}{volume: >3}%",
+        "format-bluetooth": "{icon}{volume: >3}%",
+        "format-muted":" muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", "  "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+      	"format":"⏻",
+       	"on-click": "nwgbar",
+      	"tooltip": false,
+   },
+     "custom/launcher": {
+    	"format":" ",
+    	"on-click": "exec rofi -show run",
+    	"tooltip": false,
+},
+}
