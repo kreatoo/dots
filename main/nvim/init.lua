@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -9,6 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 
 vim.g.termguicolors=true
 
@@ -39,7 +41,7 @@ require('lualine').setup  {
 	options = {
     		theme = theme,
 		component_separators = '',
-  		--section_separators = { left = '', right = '' },
+  		--section_separators = { left = '', right = '' }, -- Commented out because gnome-terminal doesn't render them properly.
 		section_separators = { left = '', right = '' }
 	},
 }
@@ -61,6 +63,7 @@ require('nvim-treesitter.configs').setup {
 	}
 }
 
+vim.opt.shiftwidth = 4
 vim.cmd.colorscheme('embark')
 
 require("telescope").load_extension("ui-select")
