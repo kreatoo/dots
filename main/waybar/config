@@ -1,14 +1,14 @@
 {
     "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 40,
-    "margin-top": 10,
+    "margin-bottom": 10,
     "margin-left": 10,
     "margin-right": 10,
     //"width": 1350, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/launcher","sway/workspaces", "sway/mode"],
-    "modules-right": ["network", "cpu", "memory", "idle_inhibitor", "backlight", "pulseaudio", "battery", "clock", "tray", "custom/power"],
+    "modules-right": ["cpu", "memory", "idle_inhibitor", "backlight", "pulseaudio", "battery", "clock", "tray", "custom/power"],
 
  // Modules configuration
 

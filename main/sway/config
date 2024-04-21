@@ -14,11 +14,14 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term warp-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu "rofi -show drun"
+
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec dbus-update-activation-environment --all
 
 default_border pixel 0
 
@@ -68,7 +71,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 
 ### Output configuration
 #
-output * bg ~/Wallpapers/6y5DJ0E.jpeg fill
+output * bg ~/Wallpapers/1.jpg fill
 #
 # Example configuration:
 #
@@ -80,10 +83,10 @@ output * bg ~/Wallpapers/6y5DJ0E.jpeg fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+          timeout 300 'lock-sway -f' \
+          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          before-sleep 'lock-sway -f'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -123,7 +126,7 @@ output * bg ~/Wallpapers/6y5DJ0E.jpeg fill
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    bindsym Print exec "~/.local/bin/take-screenshot"
+    bindsym Print exec "/bin/sh -c 'XDG_SCREENSHOTS_DIR=/home/kreato/Pictures/Screenshots grimshot savecopy area'"
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
@@ -133,6 +136,7 @@ output * bg ~/Wallpapers/6y5DJ0E.jpeg fill
 #
 # Moving around:
 #
+    bindsym $mod+Shift+q exec lock-sway
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
