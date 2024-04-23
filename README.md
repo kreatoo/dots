@@ -13,8 +13,8 @@
 Screenshots can be found in the [screenshots](./screenshots) folder.
 
 ## Setup
-> [!WARNING]  
-> This will overwrite existing files/directories! Make sure to backup!
+> [!INFO]  
+> To remove existing file or directories, you can run with `-r` flag. Make sure to backup if you are planning to use this flag!
 
 After installing all the dependencies, run `setup.sh`.
 
