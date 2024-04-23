@@ -1,0 +1,10 @@
+#!/bin/sh
+[ -z "$(pgrep swaylock)" ] || exit
+for output in $(swaymsg -t get_outputs | jq -r '.[].name'); do
+    image=/tmp/"$output"-lock
+    [ -e "$image" ] && rm -f "$image"
+    grim -l 1 -o "$output" "$image".png
+    ffmpeg -y -hide_banner -loglevel error -i "$image".png -vf "boxblur=20" -c:a copy "$image"-blurred.png
+    args="$args $@ --image $output:$image-blurred.png"
+done
+swaylock $args
