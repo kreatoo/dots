@@ -6,8 +6,8 @@
 * Neovim as editor
 * Waybar for the bar
 * Rofi for launching applications
-* Starship for shell prompt
 * NotoSans Nerd Font as the font
+* Warp as the terminal + prompt
 
 ## Screenshots
 Screenshots can be found in the [screenshots](./screenshots) folder.
@@ -19,4 +19,6 @@ Screenshots can be found in the [screenshots](./screenshots) folder.
 After installing all the dependencies, run `setup.sh`.
 
 ## Scripts
-TBD
+
+* `lock-sway` - Uses swaylock and a few other commands to blur the screen before locking
+
