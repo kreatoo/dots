@@ -72,7 +72,7 @@ info "Kreato's Dotfiles setup script"
 
 info "Checking dependencies"
 
-for i in sway swaylock brightnessctl dunst nvim waybar rofi wal jq ffmpeg; do
+for i in sway swaylock brightnessctl dunst nvim waybar rofi wal jq ffmpeg grimshot; do
     (command -v $i >/dev/null 2>&1 && info "$i installed") || warn "$i"
 done
 
@@ -113,7 +113,7 @@ cd ..
 
 info "Installing scripts"
 
-cd scripts || err "unknown error"
+cd scripts/home/.local/bin || err "unknown error"
 
 mkdir -p "$HOME"/.local/bin
 
