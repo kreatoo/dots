@@ -13,12 +13,25 @@ info() {
 }
 
 warn() {
-    printf "${yellow}warn${reset}: $1 is not installed, config may not work properly"
+    printf "${yellow}warn${reset}: $1 is not installed, config may not work properly\n"
 }
 
 err() {
     printf "${red}error${reset}: $@\n"
     exit 1
+}
+
+
+down() {
+    if [ -n "$KREATO_DOWNLOADER" ]; then
+	$KREATO_DOWNLOADER "$1"
+    else
+	if ! command -v wget > /dev/null 2>&1; then
+	    err "wget not installed, cannot install font"
+	fi
+	
+	wget "$1"
+    fi
 }
 
 lnk() {
@@ -59,12 +72,29 @@ info "Kreato's Dotfiles setup script"
 
 info "Checking dependencies"
 
-for i in sway swaylock brightnessctl dunst nvim waybar rofi wal jq; do
+for i in sway swaylock brightnessctl dunst nvim waybar rofi wal jq ffmpeg; do
     (command -v $i >/dev/null 2>&1 && info "$i installed") || warn "$i"
 done
 
 if ! (fc-list | grep "NotoSans Nerd Font,NotoSans NF:style=Regular" >/dev/null 2>&1); then
     warn "NotoSans Nerd Font"
+    info "Do you want to install the font? (Y/n) " " "
+    read -r ynfont
+    case $ynfont in
+	"y" | "Y" | "yes" | "Yes")
+	    info "Proceeding..."
+	    mkdir -p "$HOME"/.fonts
+	    cd "$HOME"/.fonts
+	    KREATO_DOWNLOADER=$KREATO_DOWNLOADER down "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Noto/Sans/NotoSansNerdFont-Regular.ttf"
+	    fc-cache -f
+	    cd - >/dev/null 2>&1
+	    info "Fonts installed."
+	    ;;
+	*)
+	    info "Skipping..."
+	;;
+    esac
+	
 fi
 
 info "Installing main dotfiles"
