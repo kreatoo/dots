@@ -13,57 +13,11 @@ set $term warp-terminal # Your preferred terminal emulator
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu "rofi -show drun"
-
-
-for_window [title=".*"] inhibit_idle fullscreen
+set $menu "rofi -show drun | xargs swaymsg exec --"
 
 include ~/.config/sway/config.d/*.conf
 
-for_window [class="^Pavucontrol$"] floating enable
 
-# https://github.com/ValveSoftware/steam-for-linux/issues/1040
-for_window [class="^Steam$" title="^Friends$"] floating enable
-for_window [class="^Steam$" title="Steam - News"] floating enable
-for_window [class="^Steam$" title=".* - Chat"] floating enable
-for_window [class="^Steam$" title="^Settings$"] floating enable
-for_window [class="^Steam$" title=".* - event started"] floating enable
-for_window [class="^Steam$" title=".* CD key"] floating enable
-for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
-for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
-for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-for_window [title="^Steam Keyboard$"] floating enable
-
-### Output configuration
-#
-output * bg ~/Wallpapers/1.jpg fill
-
-### Idle configuration
-#
-# Example configuration:
-#
-exec swayidle -w \
-          timeout 300 '~/.local/bin/lock-sway -f' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep '~/.local/bin/lock-sway -f'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
 #
@@ -208,10 +162,6 @@ bindsym $mod+r mode "resize"
 
 input type:keyboard {
     xkb_layout tr
-}
-
-input type:touchpad {
-    tap enabled
 }
 
 #

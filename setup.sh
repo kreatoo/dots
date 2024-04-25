@@ -80,7 +80,7 @@ info "Kreato's Dotfiles setup script"
 
 info "Checking dependencies"
 
-for i in sway swaylock brightnessctl dunst nvim waybar rofi wal jq ffmpeg grimshot; do
+for i in sway swaylock brightnessctl dunst nvim waybar node rofi wal jq ffmpeg grimshot; do
     (command -v $i >/dev/null 2>&1 && info "$i installed") || warnerr "$i"
 done
 
@@ -99,6 +99,7 @@ case $workyn in
     ;;
     *)
        info "Skipping..."
+       echo "include ~/.config/sway/config.d/home/*.conf" > main/sway/config.d/enable-work.conf
        exit
     ;;
 esac
