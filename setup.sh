@@ -22,6 +22,14 @@ err() {
 }
 
 
+warnerr() {
+    if [ "$KREATO_SKIP_DEPENDENCIES" = "1" ]; then
+	warn "$1"
+    else
+	err "$1 is not installed, config may not work properly. Set 'KREATO_SKIP_DEPENDENCIES' to '1' to convert this into a warning."
+    fi
+}
+
 down() {
     if [ -n "$KREATO_DOWNLOADER" ]; then
 	$KREATO_DOWNLOADER "$1"
@@ -73,8 +81,27 @@ info "Kreato's Dotfiles setup script"
 info "Checking dependencies"
 
 for i in sway swaylock brightnessctl dunst nvim waybar rofi wal jq ffmpeg grimshot; do
-    (command -v $i >/dev/null 2>&1 && info "$i installed") || warn "$i"
+    (command -v $i >/dev/null 2>&1 && info "$i installed") || warnerr "$i"
 done
+
+info "Do you want to enable work configurations? If not Kreato or in doubt, please say n. (Y/n) " ""
+
+read -r workyn
+
+case $workyn in
+    "y" | "Y" | "yes" | "Yes")
+       info "Proceeding..."
+       info "Checking work-specific dependencies"
+       for i in swaysome; do
+	    (command -v $i >/dev/null 2>&1 && info "$i installed") || warnerr "$i"
+       done
+       echo "include ~/.config/sway/config.d/work/*.conf" > main/sway/config.d/enable-work.conf
+    ;;
+    *)
+       info "Skipping..."
+       exit
+    ;;
+esac
 
 if ! (fc-list | grep "NotoSans Nerd Font,NotoSans NF:style=Regular" >/dev/null 2>&1); then
     warn "NotoSans Nerd Font"

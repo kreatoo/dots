@@ -1,59 +1,24 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
+
+# Mod1 is Alt
 set $mod Mod1
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term warp-terminal
+set $term warp-terminal # Your preferred terminal emulator
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu "rofi -show drun"
 
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec dbus-update-activation-environment --all
-
-default_border pixel 0
 
 for_window [title=".*"] inhibit_idle fullscreen
 
-### Appearance
-# window corner radius in px
-corner_radius 0
-
-gaps inner 10
-
-# Window background blur
-blur on
-blur_xray off
-blur_passes 2
-blur_radius 5
-
-layer_effects "waybar" blur enable;
-layer_effects "rofi" blur enable;
-
-shadows on
-shadows_on_csd off
-shadow_blur_radius 20
-shadow_color #0000007F
-
-# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
-default_dim_inactive 0.0
-dim_inactive_colors.unfocused #000000FF
-dim_inactive_colors.urgent #900000FF
-
-# Move minimized windows into Scratchpad (enable|disable)
-scratchpad_minimize disable
+include ~/.config/sway/config.d/*.conf
 
 for_window [class="^Pavucontrol$"] floating enable
 
@@ -72,12 +37,6 @@ for_window [title="^Steam Keyboard$"] floating enable
 ### Output configuration
 #
 output * bg ~/Wallpapers/1.jpg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
