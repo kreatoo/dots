@@ -14,7 +14,9 @@
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
- 
+
+@import "../../.cache/wal/colors-kreato.css";
+
 /* Reset all styles */
 
 #workspaces button.focused {
@@ -34,7 +36,7 @@
 
 window#waybar {
     background:#2e3440;
-    background-color:rgba(43, 45, 50, 0.7);
+    background-color: @background;
 }
 
 #workspaces button {
