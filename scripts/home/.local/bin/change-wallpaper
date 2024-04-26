@@ -1,0 +1,5 @@
+#!/bin/sh
+WALLPAPER="$(realpath $1)"
+TRANSPARENCY="30"
+
+wal -i "$WALLPAPER" -a 30

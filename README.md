@@ -21,4 +21,4 @@ After installing all the dependencies, run `setup.sh`.
 ## Scripts
 
 * `lock-sway` - Uses swaylock and a few other commands to blur the screen before locking
-
+* `change-wallpaper` - Uses wal to change the wallpaper and colorscheme
