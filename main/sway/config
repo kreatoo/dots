@@ -15,8 +15,6 @@ set $term warp-terminal # Your preferred terminal emulator
 # on the original workspace that the command was run on.
 set $menu "rofi -show drun | xargs swaymsg exec --"
 
-include ~/.config/sway/config.d/*.conf
-
 
 
 ### Key bindings
@@ -171,3 +169,4 @@ input type:keyboard {
 bar swaybar_command waybar
 
 include /usr/local/etc/sway/config.d/*
+include ~/.config/sway/config.d/*.conf
