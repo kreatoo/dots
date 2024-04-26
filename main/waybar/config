@@ -8,7 +8,7 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/launcher","sway/workspaces", "sway/mode"],
-    "modules-right": ["cpu", "memory", "idle_inhibitor", "backlight", "pulseaudio", "battery", "clock", "tray", "custom/power"],
+    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "clock", "tray", "custom/power"],
 
  // Modules configuration
 

@@ -5,34 +5,11 @@
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
  *
  * =========================================================================== */
- 
+
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
 
-
-/*
-Polar Night
-nord0  #2e3440
-nord1  #3b4252
-nord2  #434c5e
-nord3  #4c566a
-Snow Storm
-nord4  #d8dee9
-nord5  #e5e9f0
-nord6  #eceff4
-Frost
-nord7  #8fbcbb
-nord8  #88c0d0
-nord9  #81a1c1
-nord10 #5e81ac
-Aurora
-nord11 #bf616a
-nord12 #d08770
-nord13 #ebcb8b
-nord14 #a3be8c
-nord15 #b48ead
-*/
 
 /* -----------------------------------------------------------------------------
  * Base styles
@@ -77,13 +54,16 @@ window#waybar {
 #clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#custom-keyboard-layout, #backlight, #network, #pulseaudio, #mode, #tray, #window,#custom-launcher,#custom-power,#custom-pacman, #custom-network_traffic {
     color: #eceff4;
     padding: 2px 8px;
-    /*border: 1px;
-    border-bottom: 2px;
-    border-style: solid; */
-    /* margin-top:1px; */
+    border-radius: 4px;
+    margin: 6px 3px;
+    padding: 6px 12px;
     margin: 5px;
 }
- 
+
+#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#custom-keyboard-layout, #backlight, #network, #pulseaudio, #mode, #tray, #window,#custom-power,#custom-pacman, #custom-network_traffic {
+    background-color: rgba(37, 37, 37, 0.5); 
+}
+
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
@@ -128,10 +108,16 @@ window#waybar {
 
 #cpu {
     color:#a3be8c;
+    border-radius: 4px;
+    margin: 6px 3px;
+    padding: 6px 12px;
 }
 
 #memory {
     color: #b48ead;
+    border-radius: 4px;
+    margin: 6px 3px;
+    padding: 6px 12px;
 }
 
 #network.disabled {
@@ -167,15 +153,16 @@ window#waybar {
 }
 
 #tray {
+  color: #181825;
 }
 
 #custom-power{
     border-style: hidden;
-    margin: 5px;
 }
 
 #custom-launcher{
     margin-top: 5px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 #window{
@@ -188,4 +175,10 @@ window#waybar {
 
 #custom-keyboard-layout{
    color:#d08770;
+}
+
+#workspaces button:hover {
+  background: rgba(37, 37, 37, 0.5);
+  text-shadow: none;
+  box-shadow: none;
 }
