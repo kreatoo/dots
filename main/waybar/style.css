@@ -20,7 +20,7 @@
 /* Reset all styles */
 
 #workspaces button.focused {
-    color: #81a1c1;
+    color: @foreground;
 }
 
 * {
