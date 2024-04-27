@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 
-vim.g.termguicolors=true
+vim.o.termguicolors=true
 
 vim.opt.rtp:prepend(lazypath)
 
@@ -35,7 +35,8 @@ require("lazy").setup({
   { 'nvim-telescope/telescope-ui-select.nvim' },
   { 'embark-theme/vim', name = 'embark' },
   { 'nvimdev/dashboard-nvim', event = 'VimEnter', dependencies = { {'nvim-tree/nvim-web-devicons'}} },
-  { 'github/copilot.vim' }
+  { 'github/copilot.vim' },
+  { 'norcalli/nvim-colorizer.lua' }
 })
 
 require('lualine').setup  {
@@ -68,3 +69,5 @@ vim.opt.shiftwidth = 4
 vim.cmd.colorscheme('embark')
 
 require("telescope").load_extension("ui-select")
+
+require('colorizer').setup()
