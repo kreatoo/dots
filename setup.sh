@@ -100,7 +100,6 @@ case $workyn in
     *)
        info "Skipping..."
        echo "include ~/.config/sway/config.d/home/*.conf" > main/sway/config.d/enable-work.conf
-       exit
     ;;
 esac
 
