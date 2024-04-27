@@ -37,7 +37,7 @@ set $menu "rofi -show drun | xargs swaymsg exec --"
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    bindsym Print exec "/bin/sh -c 'XDG_SCREENSHOTS_DIR=/home/kreato/Pictures/Screenshots grimshot savecopy area'"
+    bindsym Print exec "/bin/sh -c 'XDG_SCREENSHOTS_DIR=/home/kreato/Pictures/Screenshots grimshot savecopy anything'"
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
