@@ -13,6 +13,9 @@ end
 
 
 vim.o.termguicolors=true
+vim.o.updatetime = 300
+vim.o.incsearch = false
+vim.wo.signcolumn = 'yes'
 
 vim.opt.rtp:prepend(lazypath)
 
@@ -36,8 +39,15 @@ require("lazy").setup({
   { 'embark-theme/vim', name = 'embark' },
   { 'nvimdev/dashboard-nvim', event = 'VimEnter', dependencies = { {'nvim-tree/nvim-web-devicons'}} },
   { 'github/copilot.vim' },
-  { 'norcalli/nvim-colorizer.lua' }
+  { 'norcalli/nvim-colorizer.lua' },
+  { 'preservim/nerdtree' },
+  { 'junegunn/fzf', run = function() vim.api.nvim_command('fzf#install()') end },
+  { 'junegunn/fzf.vim', requires = { 'junegunn/fzf' } },
+  { 'tanvirtin/vgit.nvim', requires = { 'nvim-lua/plenary.nvim' }}
 })
+
+-- Start NERDTree
+vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 
 require('lualine').setup  {
 	options = {
@@ -69,5 +79,8 @@ vim.opt.shiftwidth = 4
 vim.cmd.colorscheme('embark')
 
 require("telescope").load_extension("ui-select")
+
+-- vgit.nvim
+require('vgit').setup()
 
 require('colorizer').setup()

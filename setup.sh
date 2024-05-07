@@ -147,3 +147,6 @@ mkdir -p "$HOME"/.local/bin
 for i in *; do
     lnk "$PWD/$i" "$HOME"/.local/bin/"$i"
 done
+
+mkdir -p "$HOME/.local/share/warp-terminal/themes"
+lnk "$HOME/.cache/wal/colors-warp.yml" "$HOME/.local/share/warp-terminal/themes/colors-pywal.yml"
