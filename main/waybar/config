@@ -63,7 +63,7 @@
         }
     },
     "cpu": {
-        "format": " {usage: >3}%",
+        "format": "  {usage: >3}%",
         "on-click": "footclient -T waybar_btop -e btop"
     },
     "memory": {
@@ -80,7 +80,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon}{percent: >3}%",
-        "format-icons": ["", ""],
+        "format-icons": ["  ", "  "],
         "on-scroll-down": "brightnessctl -c backlight set 5%-",
         "on-scroll-up": "brightnessctl -c backlight set +5%"
     },
