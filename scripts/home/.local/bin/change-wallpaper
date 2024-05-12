@@ -3,3 +3,5 @@ WALLPAPER="$(realpath $1)"
 TRANSPARENCY="30"
 
 wal -i "$WALLPAPER" -a 30
+
+command -v walogram 2>/dev/null && walogram
