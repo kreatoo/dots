@@ -154,7 +154,7 @@ lnk "$HOME/.cache/wal/colors-warp.yml" "$HOME/.local/share/warp-terminal/themes/
 info "Do you want to fix screenshare? (Requires swayfx to be currently running) (Y/n) " " "
 read -r FIX_SCREENSHARE
 
-if [[ ( "$FIX_SCREENSHARE" = "y" || "$FIX_SCREENSHARE" = "Y" ) && $(pgrep -x "sway" > /dev/null) ]]; then
+if [ "$FIX_SCREENSHARE" = "y" ] || [ "$FIX_SCREENSHARE" = "Y" ] && [ "$(pgrep -x "sway" > /dev/null)" ]; then
     info "Fixing screenshare"
     mkdir $HOME/.config/xdg-desktop-portal
     echo $'[preferred]\ndefault=gtk\norg.freedesktop.impl.portal.ScreenCast=wlr' > $HOME/.config/xdg-desktop-portal/sway-portals.conf
