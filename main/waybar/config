@@ -46,7 +46,8 @@
     },
     "clock": {
         "format": "{:%OI:%M %p}",
-        "on-click": "ags -t datemenu"
+        "on-click": "ags -t datemenu",
+        "tooltip": false
     },
     "cpu": {
         "format": "  {usage: >3}%",
