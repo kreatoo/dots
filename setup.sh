@@ -80,7 +80,7 @@ info "Kreato's Dotfiles setup script"
 
 info "Checking dependencies"
 
-for i in sway swaylock brightnessctl dunst nvim waybar node rofi wal jq ffmpeg grimshot; do
+for i in sway swaylock brightnessctl nvim waybar node rofi wal jq ffmpeg grimshot ags bun sass; do
     (command -v $i >/dev/null 2>&1 && info "$i installed") || warnerr "$i"
 done
 
@@ -128,14 +128,13 @@ info "Installing main dotfiles"
 
 cd main || err "please enter source directory before continuing"
 
-mkdir -p "$HOME/.config/dunst"
 
 for i in *; do
     lnk "$PWD/$i" "$HOME"/.config/"$i"
 done
 
-lnk "$HOME/.cache/wal/dunstrc" "$HOME/.config/dunst/dunstrc"
-
+mkdir -p "$HOME/.cache/ags"
+lnk "$HOME/.cache/wal/ags-options.json" "$HOME/.cache/ags/options.json"
 cd ..
 
 info "Installing scripts"

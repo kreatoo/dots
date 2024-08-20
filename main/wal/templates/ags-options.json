@@ -1,0 +1,10 @@
+{{
+    "theme.scheme": "dark",
+    "quicksettings.avatar.image": "/home/kreato/Pictures/pfp.jpg",
+    "theme.dark.bg": "{background}",
+    "theme.dark.fg": "{foreground}",
+    "theme.dark.primary.bg": "{background}",
+    "theme.dark.primary.fg": "{foreground}",
+    "theme.dark.error.bg": "{color3}",
+    "theme.dark.error.fg": "{foreground}"
+}}

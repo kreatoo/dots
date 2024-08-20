@@ -166,10 +166,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-input type:keyboard {
-    xkb_layout tr
-}
-
 #
 # Status Bar:
 #

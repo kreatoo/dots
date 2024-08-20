@@ -13,7 +13,7 @@
 Screenshots can be found in the [screenshots](./screenshots) folder.
 
 ## Setup
-> [!INFO]  
+> [!NOTE]  
 > To remove existing file or directories, you can run with `-r` flag. Make sure to backup if you are planning to use this flag!
 
 After installing all the dependencies, run `setup.sh`.
@@ -22,3 +22,6 @@ After installing all the dependencies, run `setup.sh`.
 
 * `lock-sway` - Uses swaylock and a few other commands to blur the screen before locking
 * `change-wallpaper` - Uses wal to change the wallpaper and colorscheme
+
+## Thanks
+* [xeome](https://github.com/xeome/dots) for the quick settings widget
